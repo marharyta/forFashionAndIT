@@ -1,0 +1,292 @@
+@font-face {
+  font-family: "Metropolis";
+  src: url("../../static/fonts/Metropolis-Regular.otf");
+}
+
+@font-face {
+  font-family: "Metropolis Semi Bold";
+  src: url("../../static/fonts/Metropolis-SemiBold.otf");
+}
+
+@import url("https://fonts.googleapis.com/css?family=Merriweather&display=swap");
+
+@import './global.css';
+
+$background_color: #f4ebdc;
+
+$main_font_Metropolis: "Metropolis", serif;
+$secondary_font_Merriweather: "Merriweather", serif;
+$text_font_size: 1rem;
+$main_title_font_size: 2rem;
+$menu_font_size: 1.25rem;
+$main_text_align: left;
+$main_font_weight: 400;
+
+
+$body_padding: 4rem 5rem;
+$box_padding: 0px 2rem 0px 0px;
+$element_full_width_height: 100%;
+
+
+html {
+  font-size: 16px;
+  body {
+    background: $background_color;
+    overflow-x: hidden;
+    padding: $body_padding;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+
+    header.upperMenu {
+      position: relative;
+      width: $element_full_width_height;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+
+      min-height: 10px;
+      height: 1.5rem;
+      margin-bottom: 15rem;
+
+      h1 {
+        flex: 8;
+        font-size: $main_title_font_size;
+        font-family:$main_font_Metropolis;
+        vertical-align: bottom;
+      }
+
+      div {
+        flex: 1;
+        font-size: $menu_font_size;
+        font-family: $main_font_Metropolis;
+        text-align: right;
+        vertical-align: bottom;
+        
+      }
+    }
+
+    .selector {
+      position: fixed;
+      box-sizing: border-box;
+      height: $element_full_width_height;
+
+      top: 310px;
+      right: 80px;
+      
+      
+      span {
+        display: block;
+        box-sizing: border-box;
+        text-align: $main_text_align;
+        font-family: $secondary_font_Merriweather;
+        font-weight: $main_font_weight;
+        font-size: $menu_font_size;
+
+        line-height: 1.8;
+      }
+      
+    }
+
+    main{
+        .container, .posts-container {
+            min-height: 38rem;
+            height: 80vh;
+            margin-bottom: 12.5rem;
+            box-sizing: border-box;
+        }
+
+        .box {
+            vertical-align: top;
+            box-sizing: border-box;
+            width: 33.3%;
+            min-height: 600px;
+            /* max-height: 720px; */
+            height: $element_full_width_height;
+        
+            /* float: left; */
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        .box.first {
+            padding: $box_padding;
+            position: relative;
+            height: $element_full_width_height;
+
+            h2 {
+                width: $element_full_width_height;
+                font-family: $main_font_Metropolis;
+                font-size: $main_title_font_size;
+                text-align: $main_text_align;
+                margin-bottom: $main_title_font_size;
+                max-width: 420px;
+                line-height: 1.3;
+              }
+
+              p {
+                width: $element_full_width_height;
+                font-family: $secondary_font_Merriweather;
+                text-align: $main_text_align;
+                font-size: $text_font_size;
+                max-width: 420px;
+                font-weight: 300;
+                line-height: 1.65;
+              }
+
+              button.readArticle {
+                font-size: 1.75rem;
+                display: block;
+                background-color: transparent;
+                text-align: center;
+                box-sizing: border-box;
+                border: 1px solid black;
+                padding: 0.5rem 3rem;
+                font-size: 1.3rem;
+                font-family: $main_font_Metropolis;
+                text-transform: lowercase;
+                font-weight: 400;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            
+                a{
+                  font-size: 1.3rem;
+                  font-family: $main_font_Metropolis;
+                  text-transform: lowercase;
+                  font-weight: 400;
+                }
+              }
+        }
+
+          
+
+  
+        .box.second {
+            padding-left: 30px;
+            img {
+                max-width: 200%;
+                width: auto;
+                height: 100%;
+            }
+        }
+    }
+
+  }
+}
+ 
+  
+
+  
+
+  
+
+  
+  .box.post {
+    width: 33.3%;
+    min-height: 1px;
+    height: auto;
+    margin-bottom: 30px;
+  
+    margin-right: 0;
+    padding: 30px 0px;
+    padding-right: 30px;
+    box-sizing: border-box;
+    /* background-image: url("https://images.unsplash.com/photo-1550757750-4ce187a65014?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"); */
+    float: left;
+  }
+  
+  .box.post:nth-child(2n) {
+    padding-right: 0px;
+    padding-left: 30px;
+  }
+
+  .box.post:nth-child(3) {
+    clear: left;
+  } 
+  .box.post:nth-child(2n+1) {
+    // clear: left;
+    clear: left;
+  }
+  
+  .box.post img {
+    max-height: 650px;
+    width: 100%;
+  }
+  
+  .box.post h2 {
+    margin-top: 21px;
+    margin-bottom: 21px;
+    font-size: 21px;
+    font-family: "Metropolis", serif;
+    line-height: 1.3;
+    width: 100%;
+  }
+  
+  .box.post > button.readArticle {
+    font-size: 14px;
+    display: block;
+    background-color: transparent;
+    text-align: center;
+    box-sizing: border-box;
+    border: 1px solid black;
+    padding: 10px 51px;
+    font-size: 21px;
+    font-family: "Metropolis", serif;
+    text-transform: lowercase;
+    font-weight: 400;
+  
+    color: black;
+  }
+  
+  /* post pages*/
+  
+  .blogpost-container {
+    /* padding: 200px 0px; */
+    padding: 0px 250px;
+    /* margin-top: -20vh; */
+    /* padding: 0px; */
+    /* margin-top: -350px; */
+    .content{
+        width: 100%;
+        position: relative;
+        h2{
+            font-size: 42px;
+            font-family: "Metropolis", serif;
+            line-height: 1.3;
+            margin-bottom: 60px;
+           }
+           img {
+            max-width: 50%;
+            width: 390px;
+            /* max-height: 600px; */
+            float: right;
+            margin-left: 60px;
+            margin-bottom: 60px;
+             position: relative;
+            /*top: 0;
+            right: 0; */
+          }
+          p{
+            font-family: "Merriweather", serif;
+            text-align: left;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 1.65;
+          }
+      }
+  }
+  
+
+  
+  
+  .blogpost-container pre {
+    display: inline-block;
+    width: 100%;
+  }
+  .blogpost-container code {
+    display: block;
+    width: 100%;
+    background: black;
+    color: white;
+  }
