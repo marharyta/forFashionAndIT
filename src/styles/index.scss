@@ -8,24 +8,94 @@
   src: url("../../static/fonts/Metropolis-SemiBold.otf");
 }
 
-@import url("https://fonts.googleapis.com/css?family=Merriweather&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i&display=swap&subset=cyrillic-ext,latin-ext');
 
 @import './global.css';
 
 $background_color: #f4ebdc;
 
 $main_font_Metropolis: "Metropolis", serif;
+$main_font_Metropolis_SemiBold: "Metropolis Semi Bold", serif;
 $secondary_font_Merriweather: "Merriweather", serif;
 $text_font_size: 1rem;
 $main_title_font_size: 2rem;
+$secondary_title_font_size: 1.3rem;
 $menu_font_size: 1.25rem;
+$button_font_size: 1.3rem;
 $main_text_align: left;
 $main_font_weight: 400;
+$thin_font_weight: 300;
+
+$border_style: 1px solid black;
+$button_padding: 0.5rem 3rem;
 
 
 $body_padding: 4rem 5rem;
 $box_padding: 0px 2rem 0px 0px;
+$even_number_box_left_padding: 30px;
 $element_full_width_height: 100%;
+
+@mixin button-mixin {
+    // box styles
+    display: block;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: $border_style;
+    padding: $button_padding;
+
+    // text styles
+    a{
+        text-align: center;
+        text-transform: lowercase;
+        text-decoration: none;
+        font-size: $button_font_size;
+        font-family: $main_font_Metropolis;
+        font-weight: $main_font_weight;
+        
+        color: black;
+        cursor: pointer;
+    }
+}
+
+@mixin h2-header {
+    width: $element_full_width_height;
+    font-family: $main_font_Metropolis;
+    font-size: $main_title_font_size;
+    text-align: $main_text_align;
+    margin-bottom: $main_title_font_size;
+    max-width: 420px;
+    line-height: 1.3;
+}
+
+@mixin paragraph {
+    width: $element_full_width_height;
+                font-family: $secondary_font_Merriweather;
+                text-align: $main_text_align;
+                font-size: $text_font_size;
+                font-weight: $thin_font_weight;
+                line-height: 1.65;
+}
+
+@mixin one-third {
+    box-sizing: border-box;
+    display: inline-block;
+    float: left;
+    overflow: hidden;
+    vertical-align: top;
+
+    width: 33.3%;
+    min-height: 600px;
+    height: auto;
+    padding: 30px 0px;
+    padding-right: 30px;
+
+    margin-bottom: 30px;
+    margin-right: 0;      
+    //         /* max-height: 720px; */
+    //         height: $element_full_width_height;       
+
+    
+}
 
 
 html {
@@ -37,6 +107,7 @@ html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-smoothing: antialiased;
+    font-weight: 400;
 
     header.upperMenu {
       position: relative;
@@ -52,8 +123,9 @@ html {
       h1 {
         flex: 8;
         font-size: $main_title_font_size;
-        font-family:$main_font_Metropolis;
+        font-family: $main_font_Metropolis;
         vertical-align: bottom;
+        font-weight: 400;
       }
 
       div {
@@ -67,226 +139,216 @@ html {
     }
 
     .selector {
-      position: fixed;
+      position: absolute;
       box-sizing: border-box;
       height: $element_full_width_height;
 
-      top: 310px;
-      right: 80px;
+      top: 0px;
+      right: 0px;
+      display: flex;
+      flex-direction: column;
+      
       
       
       span {
-        display: block;
+        // display: block;
+        // width: 100%;
         box-sizing: border-box;
         text-align: $main_text_align;
         font-family: $secondary_font_Merriweather;
-        font-weight: $main_font_weight;
+        font-family: $main_font_Metropolis;
+        font-weight: 300;
         font-size: $menu_font_size;
-
-        line-height: 1.8;
+        letter-spacing: 0.5px;
+        margin-bottom: 12px;
+        vertical-align: top;
+        
       }
       
     }
 
     main{
+        display: block;
+        position: relative;
         .container, .posts-container {
+            box-sizing: border-box;
             min-height: 38rem;
             height: 80vh;
             margin-bottom: 12.5rem;
-            box-sizing: border-box;
         }
 
         .box {
-            vertical-align: top;
-            box-sizing: border-box;
-            width: 33.3%;
-            min-height: 600px;
-            /* max-height: 720px; */
+            @include one-third;
+            // vertical-align: top;
+            // box-sizing: border-box;
+            // width: 33.3%;
+            // min-height: 600px;
+            // /* max-height: 720px; */
             height: $element_full_width_height;
-        
-            /* float: left; */
-            display: inline-block;
-            overflow: hidden;
+            padding: 0px;
+            margin: 0px;
         }
 
         .box.first {
-            padding: $box_padding;
             position: relative;
+            padding: $box_padding;
             height: $element_full_width_height;
 
             h2 {
-                width: $element_full_width_height;
-                font-family: $main_font_Metropolis;
-                font-size: $main_title_font_size;
-                text-align: $main_text_align;
-                margin-bottom: $main_title_font_size;
-                max-width: 420px;
-                line-height: 1.3;
+                @include h2-header;
+                font-weight: 400;
               }
 
               p {
-                width: $element_full_width_height;
-                font-family: $secondary_font_Merriweather;
-                text-align: $main_text_align;
-                font-size: $text_font_size;
+                @include paragraph;
                 max-width: 420px;
-                font-weight: 300;
-                line-height: 1.65;
               }
 
               button.readArticle {
-                font-size: 1.75rem;
-                display: block;
-                background-color: transparent;
-                text-align: center;
-                box-sizing: border-box;
-                border: 1px solid black;
-                padding: 0.5rem 3rem;
-                font-size: 1.3rem;
-                font-family: $main_font_Metropolis;
-                text-transform: lowercase;
-                font-weight: 400;
+                @include button-mixin;
                 position: absolute;
                 bottom: 0;
                 left: 0;
-            
-                a{
-                  font-size: 1.3rem;
-                  font-family: $main_font_Metropolis;
-                  text-transform: lowercase;
-                  font-weight: 400;
-                }
               }
         }
 
-          
-
-  
         .box.second {
-            padding-left: 30px;
+            padding-left: $even_number_box_left_padding;
             img {
                 max-width: 200%;
                 width: auto;
                 height: 100%;
             }
         }
+
+        .box.post {
+            @include one-third;
+        
+            img {
+                max-height: 650px;
+                width: 100%;
+              }
+        
+              h2 {
+                @include h2-header;
+                margin-top: $secondary_title_font_size;
+                margin-bottom: $secondary_title_font_size;
+                font-size: $secondary_title_font_size;
+                font-weight: 400;
+              }
+        
+              button.readArticle {
+                @include button-mixin;
+              }
+        }
+        .box.post:nth-child(2n) {
+            padding-right: 0px;
+            padding-left: $even_number_box_left_padding;
+        }
+    
+        .box.post:nth-child(3) {
+            clear: left;
+        } 
+        .box.post:nth-child(2n+1) {
+            clear: left;
+        }
+
+
+    }
+
+    article {
+        .blogpost-container {
+                width: 100%;
+                position: relative;
+                max-width: 680px;
+                margin: 0 auto;
+
+                img {
+                    position: relative;
+                    max-width: 50%;
+                    height: auto;
+                    // width: 390px;
+                    /* max-height: 600px; */
+                    float: right;
+                    margin-left: 2rem;
+                    // margin-bottom: 60px;
+                    
+
+                }
+                h1{
+                    @include h2-header;
+                    max-width: 580px;
+                    margin-top: $main_title_font_size;
+                    font-size: 2.5rem;
+                    // font-family: $main_font_Metropolis;
+                    // line-height: 1.3;
+                    
+                }
+
+                h2 {
+                    @include h2-header;
+                    max-width: 580px;
+                    margin-top: $main_title_font_size;
+                    font-size: 2.25rem;
+                    margin-bottom: 1rem;
+                }
+
+                h3 {
+                    @include h2-header;
+                    max-width: 580px;
+                    margin-top: $main_title_font_size;
+                    font-size: 1.75rem;
+                    margin-bottom: 1rem;
+                }
+
+                h4 {
+                    @include h2-header;
+                    max-width: 580px;
+                    margin-top: $main_title_font_size;
+                    font-size: 1.5rem;
+                    margin-bottom: 1rem;
+                }
+
+                p{
+                    @include  paragraph;
+                    line-height: 1.8;
+                    margin-bottom: 1.5rem;
+                }
+
+                b, strong {
+                    font-weight: 700;
+                    font-style: normal;
+                    font-family: $main_font_Metropolis;
+                }
+
+                i {
+                    font-style: italic;
+                    font-weight: 300;
+                }
+
+            }
+
+            pre {
+                white-space: pre-wrap;
+                white-space: -moz-pre-wrap;
+                white-space: -o-pre-wrap;
+                word-wrap: break-word;}
+            // code styling css
+            pre {
+                display: inline-block;
+                width: 100%;
+            }
+            code {
+                display: block;
+                width: 100%;
+                background: black;
+                color: white;
+                padding: 20px;
+            }
+        
     }
 
   }
 }
  
   
-
-  
-
-  
-
-  
-  .box.post {
-    width: 33.3%;
-    min-height: 1px;
-    height: auto;
-    margin-bottom: 30px;
-  
-    margin-right: 0;
-    padding: 30px 0px;
-    padding-right: 30px;
-    box-sizing: border-box;
-    /* background-image: url("https://images.unsplash.com/photo-1550757750-4ce187a65014?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"); */
-    float: left;
-  }
-  
-  .box.post:nth-child(2n) {
-    padding-right: 0px;
-    padding-left: 30px;
-  }
-
-  .box.post:nth-child(3) {
-    clear: left;
-  } 
-  .box.post:nth-child(2n+1) {
-    // clear: left;
-    clear: left;
-  }
-  
-  .box.post img {
-    max-height: 650px;
-    width: 100%;
-  }
-  
-  .box.post h2 {
-    margin-top: 21px;
-    margin-bottom: 21px;
-    font-size: 21px;
-    font-family: "Metropolis", serif;
-    line-height: 1.3;
-    width: 100%;
-  }
-  
-  .box.post > button.readArticle {
-    font-size: 14px;
-    display: block;
-    background-color: transparent;
-    text-align: center;
-    box-sizing: border-box;
-    border: 1px solid black;
-    padding: 10px 51px;
-    font-size: 21px;
-    font-family: "Metropolis", serif;
-    text-transform: lowercase;
-    font-weight: 400;
-  
-    color: black;
-  }
-  
-  /* post pages*/
-  
-  .blogpost-container {
-    /* padding: 200px 0px; */
-    padding: 0px 250px;
-    /* margin-top: -20vh; */
-    /* padding: 0px; */
-    /* margin-top: -350px; */
-    .content{
-        width: 100%;
-        position: relative;
-        h2{
-            font-size: 42px;
-            font-family: "Metropolis", serif;
-            line-height: 1.3;
-            margin-bottom: 60px;
-           }
-           img {
-            max-width: 50%;
-            width: 390px;
-            /* max-height: 600px; */
-            float: right;
-            margin-left: 60px;
-            margin-bottom: 60px;
-             position: relative;
-            /*top: 0;
-            right: 0; */
-          }
-          p{
-            font-family: "Merriweather", serif;
-            text-align: left;
-            font-weight: 300;
-            font-size: 16px;
-            line-height: 1.65;
-          }
-      }
-  }
-  
-
-  
-  
-  .blogpost-container pre {
-    display: inline-block;
-    width: 100%;
-  }
-  .blogpost-container code {
-    display: block;
-    width: 100%;
-    background: black;
-    color: white;
-  }
