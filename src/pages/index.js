@@ -29,7 +29,7 @@ class BlogIndex extends React.Component {
           tried to take every comment into consideration here! At a certain
           point I have also decided to create a webpack boilerplate project on
           github, were you can git pull the latest webapck.config! Thank you for
-your support!" image="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"/>
+your support!" image="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80" articleURL={"/about"}/>
         </div>
         <div className="posts-container">
           {posts.map(({ node }) => {
@@ -40,6 +40,7 @@ your support!" image="https://images.unsplash.com/photo-1505118380757-91f5f5632d
               <ArticleThumbnail key={title + Math.random()} title={title} imageURL={image} articleURL={node.fields.slug} />)
           })}
         </div>
+
       </StyledLayout>
     )
   }

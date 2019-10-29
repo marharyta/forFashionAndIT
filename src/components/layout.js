@@ -25,8 +25,10 @@ class Layout extends React.Component {
     return (
       <React.Fragment>
         <header className="upperMenu">{headerNavigation}</header>
-        <HashtagSelector />
-        <main>{children}</main>
+        <main>
+          <HashtagSelector />
+          {children}
+        </main>
         {/* <footer>
           © {new Date().getFullYear()}, Built with
           {` `}

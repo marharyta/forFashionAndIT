@@ -6,6 +6,7 @@
  */
 
 import React from "react"
+import { Link, graphql } from "gatsby"
 
 function MainArticle(props) {
     return (
@@ -13,7 +14,7 @@ function MainArticle(props) {
             <div className="box first">
                 <h2>{props.mainTitle}</h2>
                 <p className="summary">{props.summary}</p>
-                <button className="readArticle">Read article</button>
+                <button className="readArticle"><Link to={props.articleURL}>Read article</Link></button>
             </div>
             <div className="box second">
                 <img src={props.image} />
