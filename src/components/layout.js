@@ -2,8 +2,6 @@ import React from "react"
 import { Link } from "gatsby"
 import { rhythm, scale } from "../utils/typography"
 import styled, { css } from 'styled-components';
-import HashtagSelector from './hashtagSelector'
-
 
 class Layout extends React.Component {
   render() {
@@ -26,7 +24,6 @@ class Layout extends React.Component {
       <React.Fragment>
         <header className="upperMenu">{headerNavigation}</header>
         <main>
-          <HashtagSelector />
           {children}
         </main>
         {/* <footer>

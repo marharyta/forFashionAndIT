@@ -1,0 +1,110 @@
+@mixin main-styles {
+    main{
+        display: block;
+        position: relative;
+        .container, .posts-container {
+            box-sizing: border-box;
+            min-height: 38rem;
+            height: 80vh;
+            margin-bottom: 12.5rem;
+        }
+
+        .box {
+            @include one-third;
+            height: $element_full_width_height;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .box.first {
+            position: relative;
+            padding: $box_padding;
+            height: $element_full_width_height;
+
+            h2 {
+                @include h2-header;
+            }
+
+            p {
+            @include paragraph;
+            max-width: 100%;
+            }
+
+            button.readArticle {
+            @include button-mixin;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            }
+        }
+
+        .box.second {
+            padding-left: $even_number_box_left_padding;
+            img {
+                max-width: 200%;
+                width: auto;
+                height: 600px;
+            }
+        }
+
+        .box.post {
+        @include one-third;
+    
+        img {
+            max-height: 650px;
+            width: 100%;
+        }
+    
+        h2 {
+            @include h2-header;
+            margin-top: $secondary_title_font_size;
+            margin-bottom: $secondary_title_font_size;
+            font-size: $secondary_title_font_size;
+        }
+    
+        button.readArticle {
+            @include button-mixin;
+        }
+        }
+        .box.post:nth-child(2n) {
+        padding-right: 0px;
+        padding-left: $even_number_box_left_padding;
+        }
+
+        .box.post:nth-child(3) {
+            clear: left;
+        } 
+        .box.post:nth-child(2n+1) {
+            clear: left;
+        }
+
+        /* about page*/
+        .box.second{
+        width: 33.3%;
+        height: auto;
+        h2 {
+            @include h2-header;
+            max-width: 420px;
+        }
+
+        p {
+            @include paragraph;
+            max-width: 420px;
+        }
+
+        button.readArticle {
+            @include button-mixin;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        }
+
+        .box.aboutImage{
+        width: 66.6%;
+        height: 100px;
+        overflow-y: hidden;
+        }
+
+    }
+}

@@ -1,7 +1,7 @@
 ---
 title: How to streamline your React.js development process using Webpack 4
 date: "2015-05-28T22:40:32.169Z"
-image: "https://images.unsplash.com/photo-1550610939-abf1a399a1ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
+image: "https://images.unsplash.com/photo-1480099835147-7b8f6c6f8b98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
 description: This is a custom description for SEO and Open Graph purposes, rather than the default generated excerpt. Simply add a description field to the frontmatter.
 ---
 
@@ -85,6 +85,8 @@ and in your package.json:
 }
 
 ````
+
+
 Now you can download your node modules:
 
 ```

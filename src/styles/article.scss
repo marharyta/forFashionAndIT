@@ -1,0 +1,93 @@
+@mixin article-styles {
+    article {
+        .blogpost-container {
+            width: 100%;
+            position: relative;
+            max-width: 680px;
+            margin: 0 auto;
+
+            img {
+                position: relative;
+                // max-width: 50%;
+                height: auto;
+                width: 100%;
+                float: right;
+                // margin-left: 2rem;
+            }
+            
+            img.mainImage{
+                position: relative;
+            }
+       
+            h1{
+                @include h2-header;
+                max-width: 580px;
+                margin-top: $main_title_font_size;
+                font-size: 2.5rem;
+                // font-family: $main_font_Metropolis;
+                // line-height: 1.3;
+            }
+
+            h2 {
+                @include h2-header;
+                max-width: 580px;
+                margin-top: $main_title_font_size;
+                font-size: 2.25rem;
+                margin-bottom: 1rem;
+            }
+
+            h3 {
+                @include h2-header;
+                max-width: 580px;
+                margin-top: $main_title_font_size;
+                font-size: 1.75rem;
+                margin-bottom: 1rem;
+            }
+
+            h4 {
+                @include h2-header;
+                max-width: 580px;
+                margin-top: $main_title_font_size;
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            p{
+                @include  paragraph;
+                line-height: 1.8;
+                margin-bottom: 1.5rem;
+            }
+
+            b, strong {
+                font-weight: 700;
+                font-style: normal;
+                font-family: $main_font_Metropolis;
+            }
+
+            i {
+                font-style: italic;
+                font-weight: 300;
+            }
+
+            // pre {
+            //     white-space: pre-wrap;
+            //     white-space: -moz-pre-wrap;
+            //     white-space: -o-pre-wrap;
+            //     word-wrap: break-word;
+            // }
+            //     // code styling css
+            // pre {
+            //     display: inline-block;
+            //     width: 100%;
+            // }
+            // code {
+            //     display: block;
+            //     width: 100%;
+            //     background: black;
+            //     color: white;
+            //     padding: 20px;
+            // }
+
+        }
+    }
+}

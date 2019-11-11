@@ -1,0 +1,35 @@
+@mixin header-styles {
+    header.upperMenu {
+        position: relative;
+        width: $element_full_width_height;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+    
+        min-height: 10px;
+        height: 1.5rem;
+        margin-bottom: 15rem;
+    
+        h1 {
+          flex: 8;
+          font-size: $main_title_font_size;
+          font-family: $main_font_Metropolis_Medium;
+          vertical-align: bottom;
+          font-weight: $main_font_weight;
+        }
+    
+        div {
+          flex: 1;
+          font-size: $menu_font_size;
+          font-family: $main_font_Metropolis_Medium;
+          text-align: right;
+          vertical-align: bottom;
+          text-decoration: none;
+    
+          a{
+            text-decoration: none;
+            color: black;
+          }
+        }
+      }
+}

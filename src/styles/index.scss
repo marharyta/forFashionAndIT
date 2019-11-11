@@ -1,142 +1,30 @@
-@font-face {
-  font-family: "Metropolis";
-  src: url("../../static/fonts/Metropolis-Regular.otf");
+@import './config.scss';
+@import './header.scss';
+@import './main.scss';
+@import './article.scss';
+
+.gatsby-highlight-code-line {
+  background-color: #feb;
+  display: block;
+  margin-right: -1em;
+  margin-left: -1em;
+  padding-right: 1em;
+  padding-left: 0.75em;
+  border-left: 0.25em solid #f99;
 }
-
-@font-face {
-  font-family: "Metropolis Semi Bold";
-  src: url("../../static/fonts/Metropolis-SemiBold.otf");
-}
-
-@import url('https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i&display=swap&subset=cyrillic-ext,latin-ext');
-
-@import './global.css';
-
-$background_color: #f4ebdc;
-
-$main_font_Metropolis: "Metropolis", serif;
-$main_font_Metropolis_SemiBold: "Metropolis Semi Bold", serif;
-$secondary_font_Merriweather: "Merriweather", serif;
-$text_font_size: 1rem;
-$main_title_font_size: 2rem;
-$secondary_title_font_size: 1.3rem;
-$menu_font_size: 1.25rem;
-$button_font_size: 1.3rem;
-$main_text_align: left;
-$main_font_weight: 400;
-$thin_font_weight: 300;
-
-$border_style: 1px solid black;
-$button_padding: 0.5rem 3rem;
-
-
-$body_padding: 4rem 5rem;
-$box_padding: 0px 2rem 0px 0px;
-$even_number_box_left_padding: 30px;
-$element_full_width_height: 100%;
-
-@mixin button-mixin {
-    // box styles
-    display: block;
-    box-sizing: border-box;
-    background-color: transparent;
-    border: $border_style;
-    padding: $button_padding;
-
-    // text styles
-    a{
-        text-align: center;
-        text-transform: lowercase;
-        text-decoration: none;
-        font-size: $button_font_size;
-        font-family: $main_font_Metropolis;
-        font-weight: $main_font_weight;
-        
-        color: black;
-        cursor: pointer;
-    }
-}
-
-@mixin h2-header {
-    width: $element_full_width_height;
-    font-family: $main_font_Metropolis;
-    font-size: $main_title_font_size;
-    text-align: $main_text_align;
-    margin-bottom: $main_title_font_size;
-    max-width: 420px;
-    line-height: 1.3;
-}
-
-@mixin paragraph {
-    width: $element_full_width_height;
-                font-family: $secondary_font_Merriweather;
-                text-align: $main_text_align;
-                font-size: $text_font_size;
-                font-weight: $thin_font_weight;
-                line-height: 1.65;
-}
-
-@mixin one-third {
-    box-sizing: border-box;
-    display: inline-block;
-    float: left;
-    overflow: hidden;
-    vertical-align: top;
-
-    width: 33.3%;
-    min-height: 600px;
-    height: auto;
-    padding: 30px 0px;
-    padding-right: 30px;
-
-    margin-bottom: 30px;
-    margin-right: 0;      
-    //         /* max-height: 720px; */
-    //         height: $element_full_width_height;       
-
-    
-}
-
 
 html {
   font-size: 16px;
   body {
-    background: $background_color;
+    background: $background_color_beige;
     overflow-x: hidden;
     padding: $body_padding;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-smoothing: antialiased;
-    font-weight: 400;
+    font-weight: $main_font_weight;
 
-    header.upperMenu {
-      position: relative;
-      width: $element_full_width_height;
-      box-sizing: border-box;
-      display: flex;
-      justify-content: space-between;
-
-      min-height: 10px;
-      height: 1.5rem;
-      margin-bottom: 15rem;
-
-      h1 {
-        flex: 8;
-        font-size: $main_title_font_size;
-        font-family: $main_font_Metropolis;
-        vertical-align: bottom;
-        font-weight: 400;
-      }
-
-      div {
-        flex: 1;
-        font-size: $menu_font_size;
-        font-family: $main_font_Metropolis;
-        text-align: right;
-        vertical-align: bottom;
-        
-      }
-    }
+    @include  header-styles;
 
     .selector {
       position: absolute;
@@ -148,205 +36,25 @@ html {
       display: flex;
       flex-direction: column;
       
-      
-      
       span {
-        // display: block;
-        // width: 100%;
         box-sizing: border-box;
         text-align: $main_text_align;
         font-family: $secondary_font_Merriweather;
-        font-family: $main_font_Metropolis;
+        font-family: $main_font_Metropolis_Medium;
         font-weight: 300;
         font-size: $menu_font_size;
         letter-spacing: 0.5px;
         margin-bottom: 12px;
         vertical-align: top;
-        
+        text-align: right;
+        text-decoration: none;
       }
       
     }
 
-    main{
-        display: block;
-        position: relative;
-        .container, .posts-container {
-            box-sizing: border-box;
-            min-height: 38rem;
-            height: 80vh;
-            margin-bottom: 12.5rem;
-        }
+    @include main-styles;
 
-        .box {
-            @include one-third;
-            // vertical-align: top;
-            // box-sizing: border-box;
-            // width: 33.3%;
-            // min-height: 600px;
-            // /* max-height: 720px; */
-            height: $element_full_width_height;
-            padding: 0px;
-            margin: 0px;
-        }
-
-        .box.first {
-            position: relative;
-            padding: $box_padding;
-            height: $element_full_width_height;
-
-            h2 {
-                @include h2-header;
-                font-weight: 400;
-              }
-
-              p {
-                @include paragraph;
-                max-width: 420px;
-              }
-
-              button.readArticle {
-                @include button-mixin;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-              }
-        }
-
-        .box.second {
-            padding-left: $even_number_box_left_padding;
-            img {
-                max-width: 200%;
-                width: auto;
-                height: 100%;
-            }
-        }
-
-        .box.post {
-            @include one-third;
-        
-            img {
-                max-height: 650px;
-                width: 100%;
-              }
-        
-              h2 {
-                @include h2-header;
-                margin-top: $secondary_title_font_size;
-                margin-bottom: $secondary_title_font_size;
-                font-size: $secondary_title_font_size;
-                font-weight: 400;
-              }
-        
-              button.readArticle {
-                @include button-mixin;
-              }
-        }
-        .box.post:nth-child(2n) {
-            padding-right: 0px;
-            padding-left: $even_number_box_left_padding;
-        }
-    
-        .box.post:nth-child(3) {
-            clear: left;
-        } 
-        .box.post:nth-child(2n+1) {
-            clear: left;
-        }
-
-
-    }
-
-    article {
-        .blogpost-container {
-                width: 100%;
-                position: relative;
-                max-width: 680px;
-                margin: 0 auto;
-
-                img {
-                    position: relative;
-                    max-width: 50%;
-                    height: auto;
-                    // width: 390px;
-                    /* max-height: 600px; */
-                    float: right;
-                    margin-left: 2rem;
-                    // margin-bottom: 60px;
-                    
-
-                }
-                h1{
-                    @include h2-header;
-                    max-width: 580px;
-                    margin-top: $main_title_font_size;
-                    font-size: 2.5rem;
-                    // font-family: $main_font_Metropolis;
-                    // line-height: 1.3;
-                    
-                }
-
-                h2 {
-                    @include h2-header;
-                    max-width: 580px;
-                    margin-top: $main_title_font_size;
-                    font-size: 2.25rem;
-                    margin-bottom: 1rem;
-                }
-
-                h3 {
-                    @include h2-header;
-                    max-width: 580px;
-                    margin-top: $main_title_font_size;
-                    font-size: 1.75rem;
-                    margin-bottom: 1rem;
-                }
-
-                h4 {
-                    @include h2-header;
-                    max-width: 580px;
-                    margin-top: $main_title_font_size;
-                    font-size: 1.5rem;
-                    margin-bottom: 1rem;
-                }
-
-                p{
-                    @include  paragraph;
-                    line-height: 1.8;
-                    margin-bottom: 1.5rem;
-                }
-
-                b, strong {
-                    font-weight: 700;
-                    font-style: normal;
-                    font-family: $main_font_Metropolis;
-                }
-
-                i {
-                    font-style: italic;
-                    font-weight: 300;
-                }
-
-            }
-
-            pre {
-                white-space: pre-wrap;
-                white-space: -moz-pre-wrap;
-                white-space: -o-pre-wrap;
-                word-wrap: break-word;}
-            // code styling css
-            pre {
-                display: inline-block;
-                width: 100%;
-            }
-            code {
-                display: block;
-                width: 100%;
-                background: black;
-                color: white;
-                padding: 20px;
-            }
-        
-    }
+    @include article-styles;
 
   }
 }

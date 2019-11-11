@@ -1,0 +1,107 @@
+@font-face {
+    font-family: "Metropolis";
+    src: url("../../static/fonts/Metropolis-Regular.otf");
+  }
+  
+  @font-face {
+    font-family: "Metropolis Medium";
+    src: url("../../static/fonts/Metropolis-Medium.otf");
+  }
+  
+  @import url('https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i&display=swap&subset=cyrillic-ext,latin-ext');
+  
+  @import './global.css';
+
+
+
+// colors
+
+$background_color_beige: #f4ebdc;
+
+// fonts ddefinitions
+$main_font_Metropolis: "Metropolis", serif;
+$main_font_Metropolis_Medium: "Metropolis Medium", serif;
+$secondary_font_Merriweather: "Merriweather", serif;
+
+// font andd text properties
+$text_font_size: 1rem;
+$article_title_font_size: 31px;
+$main_title_font_size: 30px;
+$secondary_title_font_size: 1.3rem;
+$menu_font_size: 1.25rem;
+$button_font_size: 1.3rem;
+$main_text_align: left;
+$main_font_weight: 400;
+$thin_font_weight: 300;
+
+$border_style: 1px solid black;
+$button_padding: 0.5rem 3rem;
+
+
+$body_padding: 2.5rem 5rem;
+$box_padding: 0px 2rem 0px 0px;
+$even_number_box_left_padding: 30px;
+$element_full_width_height: 100%;
+
+
+@mixin button-mixin {
+    // box styles
+    display: block;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: $border_style;
+    padding: $button_padding;
+
+    // text styles
+    a{
+        text-align: center;
+        text-transform: lowercase;
+        text-decoration: none;
+        font-size: $button_font_size;
+        font-family: $main_font_Metropolis_Medium;
+        font-weight: $main_font_weight;
+        
+        color: black;
+        cursor: pointer;
+    }
+}
+
+
+
+@mixin h2-header {
+    width: $element_full_width_height;
+    font-family: $main_font_Metropolis_Medium;
+    font-size: $article_title_font_size;
+    text-align: $main_text_align;
+    margin-bottom: $main_title_font_size;
+    max-width: 420px;
+    line-height: 1.36;
+    font-weight: $main_font_weight;
+}
+
+@mixin paragraph {
+    width: $element_full_width_height;
+    font-family: $secondary_font_Merriweather;
+    text-align: $main_text_align;
+    font-size: $text_font_size;
+    font-weight: $main_font_weight;
+    line-height: 1.65;
+}
+
+@mixin one-third {
+    box-sizing: border-box;
+    display: inline-block;
+    float: left;
+    overflow: hidden;
+    vertical-align: top;
+
+    width: 33.3%;
+    min-height: 400px;
+    max-height: 900px;
+    height: auto;
+    padding: 30px 0px;
+    padding-right: 30px;
+
+    margin-bottom: 30px;
+    margin-right: 0;
+}

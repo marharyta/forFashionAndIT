@@ -5,8 +5,19 @@ import Bio from "../components/bio"
 import ArticleLayout from "../components/articleLayout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
+import hljs from "highlight.js/lib/highlight"
+import javascript from "highlight.js/lib/languages/javascript"
+import css from "highlight.js/lib/languages/css"
+import xml from "highlight.js/lib/languages/xml"
+// import 'highlight.js/styles/github.css';
 
 class BlogPostTemplate extends React.Component {
+  componentDidMount() {
+    hljs.registerLanguage("javascript", javascript)
+    hljs.registerLanguage("css", css)
+
+    hljs.registerLanguage("xml", xml)
+  }
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
@@ -19,8 +30,17 @@ class BlogPostTemplate extends React.Component {
           description={post.frontmatter.description || post.excerpt}
         />
         <div className="blogpost-container">
-          <img src={post.frontmatter.image || ''} />
+          <img
+            src={
+              post.frontmatter.image !== null &&
+              post.frontmatter.image.publicURL
+                ? post.frontmatter.image.publicURL
+                : "https://images.unsplash.com/photo-1480099835147-7b8f6c6f8b98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
+            }
+            className="mainImage"
+          />
           <h1>{post.frontmatter.title}</h1>
+          <h2>{post.frontmatter.description}</h2>
           <p
             style={{
               ...scale(-1 / 5),
@@ -65,16 +85,11 @@ class BlogPostTemplate extends React.Component {
               {next && (
                 <Link to={next.fields.slug} rel="next">
                   {next.frontmatter.title} →
-              </Link>
+                </Link>
               )}
             </li>
           </ul>
-
         </div>
-
-
-
-
       </ArticleLayout>
     )
   }
@@ -98,6 +113,9 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        image {
+          publicURL
+        }
       }
     }
   }

@@ -2,6 +2,7 @@
 title: 10 Lessons I Learnt From Teaching Others to Code
 date: "2016-11-29T22:12:03.284Z"
 links: [{platform: "Medium", link: https://medium.com/@riittagirl/10-lessons-i-learnt-from-teaching-others-to-code-b6b2945d15b"}]
+image:  './salty_egg.jpg'
 ---
 
 For a few month I started to volunteer for the Shortcut organisation as a coding teacher. About the organisation you can find more information [here](http://theshortcut.org/).
